@@ -77,6 +77,7 @@ var running = false;
 
 window.addEventListener("load", function() {  
   loadROM("INVADERS");
+  init();
 });
 
 function init()
@@ -292,7 +293,7 @@ function step() {
       
       for(var _y = 0; _y < height; _y++)
       {
-        pixel = mem[i + _y];
+        pixel = mem[I + _y];
         for(var _x = 0; _x < 8; _x++)
         {
           if((pixel & (0x80 >> _x)) != 0)
@@ -402,7 +403,7 @@ function run()
   window.requestAnimationFrame(run);
 }
 
-function draw()
+function draw() 
 {
   console.log("draw");
   for(var k=0; k<gfx.length; k++)
@@ -412,10 +413,7 @@ function draw()
       
       if(gfx[k] == 1)
       {
-        console.log("1");
-        ctx.fillRect(X*10, Y*10, 10, 10);
-      } else {
-        console.log("not 1");
+        ctx.fillRect(X*2, Y*2, 2, 2);
       }
     }
 }
