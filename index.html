@@ -15,13 +15,77 @@
         margin: 0;
         padding: 0;
         border: 1px solid black;
+        background: black;
       }
       
       canvas {
         width: 100%;
-        height: 100%;
+        height: auto;
         border: 1px solid black;
+        image-rendering: crisp-edges;
       }
+      
+      #keypadLeft {
+        position: absolute;
+        border-left: 10px;
+        top: 0px;
+        left: 0px;
+        bottom: 0px;
+        width: 30%;
+      }
+      
+      #keypadRight {
+        position: absolute;
+        top: 0px;
+        right: 0px;
+        bottom: 0px;
+        width: 30%;
+      }
+      
+      .key {
+        border-radius: 5px;
+        display: inline-block;
+        border: 2px solid rgba(255, 255, 255, 0.1732);
+        color: rgba(255, 255, 255, 0.1732);
+        width: 64px;
+        height: 64px;
+        font-size: 50px;
+        text-align: center;
+        margin-bottom: 3px;
+      }
+      
+      .key:active {
+        background: gray;
+      }
+      
+      .keypadCenter {
+        position: relative;
+        top: 50%;        
+	      transform: translateY(-50%);
+      }
+      
+      #keypadMiddle {
+        position: absolute;
+        top: 0px;
+        right: 0px;
+        left: 0px;
+      }
+      
+      #keypadCntr {
+        margin-top: 3px;
+        position: absolute;
+        left: 50%;
+	      transform: translateX(-50%);
+      }
+      
+      #debug {
+        color: red;
+      }
+      
+      #games {
+        width: 100%;
+      }
+      
     </style>
 
     <!-- Inline scripts are forbidden in Firefox OS apps (CSP restrictions),
@@ -31,11 +95,103 @@
   </head>
 
   <body>
-    <canvas id='screen'></canvas>    
-    <div id='step' style='display: inline-block'>step</div>
-    <div id='run' style='display: inline-block'>run</div>
-    <div id='stop' style='display: inline-block'>stop</div>
-    <div id='debug'>Debug: </div>
+    <canvas id='screen'></canvas>  
+    <div id='keypadLeft'>
+      <div class='keypadCenter'>
+        <div class='key' id='k1'>
+          1
+        </div>
+        <div class='key' id='k2'>
+          2
+        </div>
+        <div class='key' id='k4'>
+          4
+        </div>
+        <div class='key' id='k5'>
+          5
+        </div>
+        <div class='key' id='k7'>
+          7
+        </div>
+        <div class='key' id='k8'>
+          8
+        </div>
+        <div class='key' id='ka'>
+          A
+        </div>
+        <div class='key' id='k0'>
+          0
+        </div>
+      </div>
+    </div>
+    
+    <div id='keypadRight'>
+      <div class='keypadCenter'>
+        <div class='key'  id='k3'>
+          3
+        </div>
+        <div class='key'  id='kc'>
+          C
+        </div>
+        <div class='key'  id='k6'>
+          6
+        </div>
+        <div class='key'  id='kd'>
+          D
+        </div>
+        <div class='key'  id='k9'>
+          9
+        </div>
+        <div class='key'  id='ke'>
+          E
+        </div>
+        <div class='key'  id='kb'>
+          B
+        </div>
+        <div class='key'  id='kf'>
+          F
+        </div>
+      </div>
+    </div>
+    
+    <div id='keypadMiddle'>
+      <div id='keypadCntr'>
+        <div class='key' id='run'>
+          R
+        </div>
+        <div class='key' id='select'>
+          S
+        </div>
+        <div id='selector'>
+          <span id='lblJogos' style='color: white'>Jogos: </span>
+          <select id='games'>
+            <option value="15PUZZLE">15PUZZLE</option>
+            <option value="BLINKY">BLINKY</option>
+            <option value="BLITZ">BLITZ</option>
+            <option value="BRIX">BRIX</option>
+            <option value="CONNECT4">CONNECT4</option>
+            <option value="GUESS">GUESS</option>
+            <option value="HIDDEN">HIDDEN</option>
+            <option value="INVADERS">INVADERS</option>
+            <option value="KALEID">KALEID</option>
+            <option value="MAZE">MAZE</option>
+            <option value="MERLIN">MERLIN</option>
+            <option value="MISSILE">MISSILE</option>
+            <option value="PONG">PONG</option>
+            <option value="PONG2">PONG2</option>
+            <option value="PUZZLE">PUZZLE</option>
+            <option value="SYZYGY">SYZYGY</option>
+            <option value="TANK">TANK</option>
+            <option value="TETRIS">TETRIS</option>
+            <option value="TICTAC">TICTAC</option>
+            <option value="UFO">UFO</option>
+            <option value="VBRIX">VBRIX</option>
+            <option value="VERS">VERS</option>
+            <option value="WIPEOFF">WIPEOFF</option>
+          </select> 
+        </div>
+      </div>
+    </div>
   </body>
 
 </html>
