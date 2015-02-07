@@ -1,6 +1,8 @@
 # Chip8JS
 Um emulador de Chip8 feito em Javascript para o Firefox OS.
 
+![screenshot](http://i.imgur.com/jsR3wPK.png)
+
 O Chip8 é uma linguagem de programação interpretada, criada por
 Joseph Weisbecker na década de 70.
 
